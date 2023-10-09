@@ -16,7 +16,7 @@
                 <div class="row g">
 
                     <div class="col">
-                        <a class="linky" href="#">
+                        <a class="linky linky-search" href="#">
                             <div class="p-3 home-box color1">
 
                                 <p>{{ $countDok }}</p>
@@ -26,7 +26,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="#" class="linky">
+                        <a href="#" class="linky linky-search">
                             <div class="p-3 home-box color2">
                                 <p>{{ $countMap }}</p>
                                 <hr>
@@ -35,7 +35,7 @@
                         </a>
                     </div>
                     <div class="col">
-                        <a href="#" class="linky">
+                        <a href="#" class="linky linky-search">
                             <div class="p-3 home-box color3">
                                 <p>{{ $countBox }}</p>
                                 <hr>

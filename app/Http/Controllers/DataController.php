@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Datas;
+use App\Models\Riwayat;
 use App\Models\Divisions;
 use App\Models\Kategoris;
 use App\Models\Tersimpan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class DataController extends Controller
 {
@@ -119,7 +122,7 @@ class DataController extends Controller
             $kodeNumber = (int) end($lastKodeParts) + 1;
         }
 
-        // ELOQUENT
+        // DATA
         $datas = new Datas();
         $datas->kode = $kode . '-' . $kodeNumber;
         $datas->nama = $request->nama;
@@ -127,13 +130,25 @@ class DataController extends Controller
         $datas->divisions_id = $request->divisi;
         $datas->kategoris_id = $request->kategori;
         $datas->keterangan = $request->keterangan;
+        $datas->updated_at = null;
         $datas->save();
 
         // TERSIMPAN
         $tersimpan = new Tersimpan();
         $tersimpan->parent = $request->parent;
         $tersimpan->item = $kode . '-' . $kodeNumber;
+        $tersimpan->nama_item = $request->nama;
         $tersimpan->save();
+
+        // RIWAYAT
+        $riwayat = new Riwayat();
+        $riwayat->kode = $kode . '-' . $kodeNumber;
+        $riwayat->nama = $request->nama;
+        $riwayat->parent = $request->parent;
+        $riwayat->admin = '-';
+        $riwayat->status = 'Dibuat';
+        $riwayat->updated_at = null;
+        $riwayat->save();
 
         Alert::success('Berhasil Ditambahkan', 'Dokumen Berhasil Ditambahkan');
         return redirect()->route('data.index');
@@ -150,10 +165,29 @@ class DataController extends Controller
         $item = Datas::findOrFail($id);
         $kategoris = Kategoris::all();
         $divisions = Divisions::all();
+        $item_id = Datas::where('id', $id)->get('kode');
+        $kodeValue = $item_id[0]['kode'];
+        $isi_item = Tersimpan::where('parent', $kodeValue)->get();
+        $datas = Datas::all();
+
+        $code = QrCode::format('svg')
+            ->size(290)
+            ->errorCorrection('H')
+            ->generate($kodeValue);
 
         return view(
             'data.show',
-            compact('pageTitle', 'item', 'kategoris', 'divisions', 'key')
+            compact(
+                'pageTitle',
+                'item',
+                'kategoris',
+                'divisions',
+                'key',
+                'code',
+                'kodeValue',
+                'isi_item',
+                'datas'
+            )
         );
     }
 
@@ -166,11 +200,20 @@ class DataController extends Controller
 
         $kategoris = Kategoris::all();
         $divisions = Divisions::all();
+        $boxes = Datas::where('kode', 'LIKE', '%BOX%')->get();
+        $maps = Datas::where('kode', 'LIKE', '%MAP%')->get();
         $item = Datas::findOrFail($id);
 
         return view(
             'data.edit',
-            compact('pageTitle', 'item', 'kategoris', 'divisions')
+            compact(
+                'pageTitle',
+                'item',
+                'kategoris',
+                'divisions',
+                'boxes',
+                'maps'
+            )
         );
     }
 
@@ -190,6 +233,7 @@ class DataController extends Controller
                 'nomorSurat' => 'required',
                 'divisi' => 'required',
                 'kategori' => 'required',
+                'parent' => 'nullable',
             ],
             $messages
         );
@@ -214,7 +258,7 @@ class DataController extends Controller
             $kodeNumber = (int) end($lastKodeParts) + 1;
         }
 
-        // ELOQUENT
+        // DATA
         $datas = Datas::find($id);
         $datas->kode = $kode . '-' . $kodeNumber;
         $datas->nama = $request->nama;
@@ -223,6 +267,25 @@ class DataController extends Controller
         $datas->kategoris_id = $request->kategori;
         $datas->keterangan = $request->keterangan;
         $datas->save();
+
+        // TERSIMPAN
+
+        $tersimpan = Tersimpan::find($id);
+        $tersimpan->parent = $request->parent;
+        $tersimpan->item = $kode . '-' . $kodeNumber;
+        $tersimpan->nama_item = $request->nama;
+        $tersimpan->save();
+
+        // RIWAYAT
+
+        $riwayat = new Riwayat();
+        $riwayat->kode = $kode . '-' . $kodeNumber;
+        $riwayat->nama = $request->nama;
+        $riwayat->parent = $request->parent;
+        $riwayat->admin = '-';
+        $riwayat->status = 'Disunting';
+        $riwayat->created_at = $datas->created_at;
+        $riwayat->save();
 
         Alert::success('Berhasil Diubah', 'Dokumen Berhasil Diubah');
         return redirect()->route('data.index');
@@ -233,8 +296,25 @@ class DataController extends Controller
      */
     public function destroy(string $id)
     {
-        Datas::find($id)->delete();
+        $now = Carbon::now();
+        $datas = Datas::findOrFail($id);
+        $tersimpan = Tersimpan::findOrFail($id);
 
+        // RIWAYAT
+
+        $riwayat = new Riwayat();
+        $riwayat->kode = $datas->kode;
+        $riwayat->nama = $datas->nama;
+        $riwayat->parent = $tersimpan->parent;
+        $riwayat->admin = '-';
+        $riwayat->status = 'Dihapus';
+        $riwayat->created_at = $datas->created_at;
+        $riwayat->updated_at = $datas->updated_at;
+        $riwayat->deleted_at = $now;
+        $riwayat->save();
+
+        Datas::find($id)->delete();
+        Tersimpan::find($id)->delete();
         Alert::success('Berhasil Dihapus', 'Dokumen Berhasil Dihapus');
         return redirect()->route('data.index');
     }

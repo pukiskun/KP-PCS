@@ -64,10 +64,45 @@
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
+
+                        {{-- BOX --}}
+                        <div class="col-md-12 mb-3" id="parent-box" style="display: none">
+                            <label for="parent" class="form-label">Box</label>
+                            <select name="parent" class="form-select" aria-label="Default select example">
+                                <option value="">--Pilih Box--</option>
+                                @foreach ($boxes as $box)
+                                    <option value="{{ $box->kode }}">
+                                        {{ $box->kode . ' - ' . $box->nama }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('kategori')
+                                <div class="text-danger"><small>{{ $message }}</small></div>
+                            @enderror
+                        </div>
+                        {{-- !BOX --}}
+
+                        {{-- MAP --}}
+                        <div class="col-md-12 mb-3"id="parent-map" style="display: none">
+                            <label for="parent" class="form-label">Map</label>
+                            <select name="parent" class="form-select" aria-label="Default select example">
+                                <option value="">--Pilih Map--</option>
+                                @foreach ($maps as $map)
+                                    <option value="{{ $map->kode }}">
+                                        {{ $map->kode . ' - ' . $map->nama }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('kategori')
+                                <div class="text-danger"><small>{{ $message }}</small></div>
+                            @enderror
+                        </div>
+                        {{-- !MAP --}}
                         <div class="col-md-12 mb-3">
                             <label for="keterangan" class="form-label">Keterangan</label>
                             <textarea id="keterangan" name="keterangan" class="form-control" rows="5" placeholder="Masukkan Keterangan">{{ $errors->any() ? old('keterangan') : $item->keterangan }}</textarea>
                         </div>
+
                         <hr>
                         <div class="row">
                             <div class="col-md-6 d-grid">
@@ -75,8 +110,9 @@
                                         class="bi-arrow-left-circle me-2"></i>Cancel</a>
                             </div>
                             <div class="col-md-6 d-grid">
-                                <button type="submit" class="btn btn-dark btn-lg
-        mt-3"><i
+                                <button type="submit"
+                                    class="btn btn-dark btn-lg
+                                    mt-3"><i
                                         class="bi-check-circle me-2"></i> Save</button>
                             </div>
                         </div>

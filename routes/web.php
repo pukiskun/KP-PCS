@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PrintController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\HomeController;
@@ -29,3 +30,4 @@ Route::get('detail/{id}', [DataController::class, 'show'])->name('data.show');
 Route::get('delete/{id}', [DataController::class, 'destroy'])->name(
     'data.delete'
 );
+Route::get('download/{id}', [PrintController::class, 'download']);

@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
             DivisionSeeder::class,
             KategoriSeeder::class,
             DataSeeder::class,
+            TersimanSeeder::class,
+            RiwayatSeeder::class,
         ]);
     }
 }

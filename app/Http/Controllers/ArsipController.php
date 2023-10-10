@@ -21,7 +21,14 @@ class ArsipController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle = 'Create Data';
+
+        // $kategoris = Kategoris::all();
+        // $divisions = Divisions::all();
+        // $boxes = Datas::where('kode', 'LIKE', '%BOX%')->get();
+        // $maps = Datas::where('kode', 'LIKE', '%MAP%')->get();
+
+        return view('arsip.create', compact('pageTitle'));
     }
 
     /**

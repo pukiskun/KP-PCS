@@ -7,7 +7,7 @@
             </div>
             <div class="col-lg-3 col-xl-2">
                 <div class="d-grid gap-2">
-                    <a href="#" class="btn btn-secondary">Tambah Data</a>
+                    <a href="{{ route('arsip.create') }}" class="btn btn-secondary">Tambah Data</a>
                 </div>
             </div>
         </div>

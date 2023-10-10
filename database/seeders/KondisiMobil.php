@@ -16,7 +16,7 @@ class KondisiMobil extends Seeder
     {
         $now = Carbon::now();
 
-        DB::table('kondisiMobil')->insert([
+        DB::table('kondisi_mobils')->insert([
             [
                 'nopol' => 'W 1932 ER',
                 'stnk' => 'CUKUP',

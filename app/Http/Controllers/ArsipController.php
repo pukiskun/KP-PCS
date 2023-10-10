@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ListMobil;
 use Illuminate\Http\Request;
 
 class ArsipController extends Controller
@@ -13,7 +14,9 @@ class ArsipController extends Controller
     {
         $pageTitle = 'Ruang Arsip';
 
-        return view('arsip', compact('pageTitle'));
+        $items = ListMobil::all();
+
+        return view('arsip.index', compact('pageTitle', 'items'));
     }
 
     /**

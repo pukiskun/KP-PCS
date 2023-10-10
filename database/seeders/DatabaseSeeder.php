@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             DataSeeder::class,
             TersimanSeeder::class,
             RiwayatSeeder::class,
+            KondisiMobil::class,
+            ListMobil::class
         ]);
     }
 }

@@ -10,14 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('riwayats', function (Blueprint $table) {
+        Schema::create('listMobil', function (Blueprint $table) {
             $table->id();
-            $table->string('kode');
-            $table->string('nama');
-            $table->string('parent')->nullable();
+            $table->string('nopol');
+            $table->string('merk');
+            $table->string('odo_meter')->nullable();
+            $table->string('fuel')->nullable();
             $table->string('admin')->nullable();
-            $table->string('status')->nullable();
-            $table->datetime('deleted_at')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('riwayats');
+        Schema::dropIfExists('listMobil');
     }
 };

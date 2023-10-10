@@ -15,7 +15,7 @@ class ListMobil extends Seeder
     public function run(): void
     {
         $now = Carbon::now();
-        DB::table('listMobil')->insert([
+        DB::table('list_mobils')->insert([
 
             [
                 'nopol' => 'W 1932 ER',

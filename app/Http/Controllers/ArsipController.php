@@ -13,7 +13,7 @@ class ArsipController extends Controller
     {
         $pageTitle = 'Ruang Arsip';
 
-        return view('arsip', compact('pageTitle'));
+        return view('arsip.index', compact('pageTitle'));
     }
 
     /**

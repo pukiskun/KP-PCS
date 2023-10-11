@@ -15,7 +15,7 @@
         "laravel/ui": "^4.2",
         "realrashid/sweet-alert": "^7.1",
         "simplesoftwareio/simple-qrcode": "^4.2",
-        "yajra/laravel-datatables-oracle": "^10.8"
+        "yajra/laravel-datatables-oracle": "^10.10"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

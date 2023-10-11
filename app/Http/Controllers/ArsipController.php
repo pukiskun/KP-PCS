@@ -24,7 +24,14 @@ class ArsipController extends Controller
      */
     public function create()
     {
-        //
+        $pageTitle = 'Create Data';
+
+        // $kategoris = Kategoris::all();
+        // $divisions = Divisions::all();
+        // $boxes = Datas::where('kode', 'LIKE', '%BOX%')->get();
+        // $maps = Datas::where('kode', 'LIKE', '%MAP%')->get();
+
+        return view('arsip.create', compact('pageTitle'));
     }
 
     /**
@@ -32,7 +39,28 @@ class ArsipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $messages = [
+        //     'required' => ':Attribute harus diisi.',
+        // ];
+
+        // $validator = Validator::make(
+        //     $request->all(),
+        //     [
+        //         'nopol' => 'required',
+        //         'nomorSurat' => 'required',
+        //         'divisi' => 'required',
+        //         'kategori' => 'required',
+        //         'parent' => 'nullable',
+        //     ],
+        //     $messages
+        // );
+
+        // if ($validator->fails()) {
+        //     return redirect()
+        //         ->back()
+        //         ->withErrors($validator)
+        //         ->withInput();
+        // }
     }
 
     /**

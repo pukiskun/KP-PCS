@@ -26,29 +26,20 @@
             <tbody>
                 @forelse ($items as $item)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ $item->nopol }}</td>
+                        <td>{{ $item->merk }}</td>
+                        <td>{{ $item->odo_meter }}</td>
+                        <td>{{ $item->fuel }}</td>
+                        <td>{{ $item->admin }}</td>
+                        <td>{{ $item->created_at }}</td>
+                        <td>action</td>
                     </tr>
 
                 @empty
                     <tr>
-                        <td>Tidak ada data</td>
+                        <td colspan="7">Tidak ada data</td>
                     </tr>
                 @endforelse
-                <tr>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                    <td>asd</td>
-                </tr>
             </tbody>
         </table>
     </div>

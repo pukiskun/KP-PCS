@@ -130,3 +130,7 @@ textarea {
 .color4 {
   background-color: #22577a;
 }
+
+.form-check-label {
+  margin-right: 10px;
+}

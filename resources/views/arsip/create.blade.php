@@ -6,109 +6,801 @@
             @csrf
             <div class="row justify-content-center">
                 <div class="p-5 bg-light rounded-3 border col-xl-12">
-                    <div class="mb-3 text-center">
-                        <i class="bi bi-file-text-fill fs-1"></i>
-                        <h4>Masukkan Data</h4>
+                    <div class="mb-5 text-center">
+                        <i class="bi bi-truck fs-1"></i>
+                        <h4>Ceklist Pemeriksaan Kendaraan Operasional Pool</h4>
                     </div>
-                    <hr>
                     <div class="row">
-                        {{-- <div class="col-md-12 mb-3 ">
-                            <label for="nama" class="form-label">Nama Data</label>
-                            <input class="form-control @error('nama')
+                        <div class="col-md-6 mb-3 ">
+                            <label for="nopol" class="form-label">Nopol</label>
+                            <input class="form-control @error('nopol')
         is-invalid @enderror" type="text"
-                                name="nama" id="nama" value="{{ old('nama') }}" placeholder="Masukkan Nama Data">
-                            @error('nama')
+                                name="nopol" id="nopol" value="" placeholder="Masukkan Nomor Polisi">
+                            @error('nopol')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="nomorSurat" class="form-label">Nomor Surat</label>
-                            <input class="form-control @error('nomorSurat')
+                        <div class="col-md-6 mb-3 ">
+                            <label for="merk" class="form-label">Merk/Jenis Kendaraan</label>
+                            <input class="form-control @error('merk')
         is-invalid @enderror" type="text"
-                                name="nomorSurat" id="nomorSurat" value="{{ old('nomorSurat') }}"
-                                placeholder="Masukkan Nomor Surat">
-                            @error('nomorSurat')
+                                name="merk" id="merk" value="" placeholder="Masukkan Merk/Jenis Kendaraan">
+                            @error('merk')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="divisi" class="form-label">Divisi</label>
-                            <select name="divisi" id="divisi" class="form-select" aria-label="Default select example">
-                                <option value="">Pilih Divisi</option>
-                                @foreach ($divisions as $division)
-                                    <option value="{{ $division->id }}"
-                                        {{ old('division') == $division->id ? 'selected' : '' }}>{{ $division->nama }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('divisi')
+                        <div class="col-md-6 mb-3 ">
+                            <label for="odoometer" class="form-label">Odometer</label>
+                            <input class="form-control @error('odoometer')
+        is-invalid @enderror" type="text"
+                                name="odoometer" id="odoometer" value="" placeholder="Masukkan Oodometer">
+                            @error('odoometer')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
-                        <div class="col-md-12 mb-3">
-                            <label for="kategori" class="form-label">Kategori</label>
-                            <select name="kategori" id="kategori" class="form-select" aria-label="Default select example">
-                                <option value="">Pilih Kategori</option>
-                                @foreach ($kategoris as $kategori)
-                                    <option value="{{ $kategori->id }}"
-                                        {{ old('kategori') == $kategori->id ? 'selected' : '' }}>
-                                        {{ $kategori->nama }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('kategori')
+                        <div class="col-md-6 mb-3 ">
+                            <label for="bensin" class="form-label">Bensin</label>
+                            <input class="form-control @error('bensin')
+        is-invalid @enderror" type="text"
+                                name="bensin" id="bensin" value="" placeholder="Masukkan Bensin">
+                            @error('bensin')
                                 <div class="text-danger"><small>{{ $message }}</small></div>
                             @enderror
                         </div>
-
-                        <div class="col-md-12 mb-3" id="parent-box" style="display: none">
-                            <label for="parent" class="form-label">Box</label>
-                            <select name="parent" class="form-select" aria-label="Default select example">
-                                <option value="">--Pilih Box--</option>
-                                @foreach ($boxes as $box)
-                                    <option value="{{ $box->kode }}">
-                                        {{ $box->kode . ' - ' . $box->nama }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('kategori')
-                                <div class="text-danger"><small>{{ $message }}</small></div>
-                            @enderror
-                        </div>
-
-                        <div class="col-md-12 mb-3"id="parent-map" style="display: none">
-                            <label for="parent" class="form-label">Map</label>
-                            <select name="parent" class="form-select" aria-label="Default select example">
-                                <option value="">--Pilih Map--</option>
-                                @foreach ($maps as $map)
-                                    <option value="{{ $map->kode }}">
-                                        {{ $map->kode . ' - ' . $map->nama }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('kategori')
-                                <div class="text-danger"><small>{{ $message }}</small></div>
-                            @enderror
-                        </div>
-
-                        <div class="col-md-12 mb-3">
-                            <label for="keterangan" class="form-label">Keterangan</label>
-                            <textarea id="keterangan" name="keterangan" class="form-control" rows="5" value="{{ old('keterangan') }}"
-                                placeholder="Masukkan Keterangan"></textarea>
+                        <hr>
+                        <h5>Surat-surat kendaraan</h5>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>STNK</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Pajak</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Uji Keur</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Lain-lain</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <hr>
                         <div class="row">
+                            <div class="col-md-2">
+                                <h6>Body Bagian Luar</h6>
+                            </div>
+                            <div class="col-md-1">
+                                <h6>:</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Air Radiator</h6>
+                            </div>
+                            <div class="col-md-1">
+                                <h6>:</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Air ACCU</h6>
+                            </div>
+                            <div class="col-md-1">
+                                <h6>:</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Air Wipper</h6>
+                            </div>
+                            <div class="col-md-1">
+                                <h6>:</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Air Conditioner (AC)</h6>
+                            </div>
+                            <div class="col-md-1">
+                                <h6>:</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Oli Mesin</h6>
+                            </div>
+                            <div class="col-md-1">
+                                <h6>:</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Minyak Rem</h6>
+                            </div>
+                            <div class="col-md-1">
+                                <h6>:</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Oli Power Steering</h6>
+                            </div>
+                            <div class="col-md-1">
+                                <h6>:</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+                        <h5>Lampu-lampu</h5>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Lampu Utama</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Lampu Kota</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Fog Lamp</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Lampu Sein</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Lampu Belakang</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Lampu Atret</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Lampu Dalam Kabin</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h5>Tekanan Angin</h5>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Ban Terpasang (4 roda)</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Ban Serve</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h5>Wipper</h5>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Depan</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Belakang</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Suara Mesin</h6>
+                            </div>
+                            <div class="col-md-1">
+                                <h6>:</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <h6>Rem & Hand rem</h6>
+                            </div>
+                            <div class="col-md-1">
+                                <h6>:</h6>
+                            </div>
+                            <div class="col-md-9">
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                </label>
+                                <label class="form-check-label">
+                                    <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+                        <h5>Tools Set</h5>
+                        <div class="row">
+                            <div class="col-md-12 mb-3">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Kunci Roda</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Dongkrak</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <h6>Segitiga Pengaman</h6>
+                                    </div>
+                                    <div class="col-md-1">
+                                        <h6>:</h6>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="baik"> Baik
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="cukup"> Cukup
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="rusak"> Rusak
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="kurang"> Kurang
+                                        </label>
+                                        <label class="form-check-label">
+                                            <input type="radio" name="stnk_kondisi" value="tidak_ada"> Tidak Ada/Ada
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row">
                             <div class="col-md-6 d-grid">
-                                <a href="{{ url('data') }}" class="btn btn-outline-dark btn-lg mt-3"><i
+                                <a href="{{ url('arsip') }}" class="btn btn-outline-dark btn-lg mt-3"><i
                                         class="bi-arrow-left-circle me-2"></i>Cancel</a>
                             </div>
                             <div class="col-md-6 d-grid">
                                 <button type="submit" class="btn btn-dark btn-lg
-        mt-3"><i
-                                        class="bi-check-circle me-2"></i> Save</button>
+                mt-3"><i
+                                        class="bi-check-circle me-2"></i>
+                                    Save</button>
                             </div>
                         </div>
-                    </div> --}}
                     </div>
         </form>
     </div>

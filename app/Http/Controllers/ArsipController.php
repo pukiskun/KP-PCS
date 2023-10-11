@@ -39,7 +39,28 @@ class ArsipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $messages = [
+        //     'required' => ':Attribute harus diisi.',
+        // ];
+
+        // $validator = Validator::make(
+        //     $request->all(),
+        //     [
+        //         'nopol' => 'required',
+        //         'nomorSurat' => 'required',
+        //         'divisi' => 'required',
+        //         'kategori' => 'required',
+        //         'parent' => 'nullable',
+        //     ],
+        //     $messages
+        // );
+
+        // if ($validator->fails()) {
+        //     return redirect()
+        //         ->back()
+        //         ->withErrors($validator)
+        //         ->withInput();
+        // }
     }
 
     /**

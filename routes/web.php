@@ -31,3 +31,7 @@ Route::get('delete/{id}', [DataController::class, 'destroy'])->name(
     'data.delete'
 );
 Route::get('download/{id}', [PrintController::class, 'download']);
+
+
+Route::get('detail-mobil/{id}', [ArsipController::class, 'show'])->name('arsip.show');
+Route::get('edit-mobil/{id}', [ArsipController::class, 'edit'])->name('arsip.edit');

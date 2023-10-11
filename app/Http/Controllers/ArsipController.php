@@ -28,11 +28,6 @@ class ArsipController extends Controller
     {
         $pageTitle = 'Create Data';
 
-        // $kategoris = Kategoris::all();
-        // $divisions = Divisions::all();
-        // $boxes = Datas::where('kode', 'LIKE', '%BOX%')->get();
-        // $maps = Datas::where('kode', 'LIKE', '%MAP%')->get();
-
         return view('arsip.create', compact('pageTitle'));
     }
 
@@ -98,7 +93,8 @@ class ArsipController extends Controller
         $mobil->merk = $request->merk;
         $mobil->odo_meter = $request->odo_meter;
         $mobil->fuel = $request->bensin;
-        $mobil->admin = '-'; // Set the admin value as needed
+        $mobil->admin = '-';
+        $mobil->toSql();
 
         $kondisi = new KondisiMobil();
         $kondisi->nopol = $request->nopol;
@@ -135,21 +131,6 @@ class ArsipController extends Controller
         $kondisi->save();
 
 
-        // Use the toSql() and getBindings() methods to inspect the query
-        $sql = $mobil->toSql();
-        $bindings = $mobil->getBindings();
-
-        \Log::info("SQL Query: " . $sql);
-        \Log::info("Query Bindings: " . json_encode($bindings));
-
-        // Attempt to save the data
-        try {
-            $mobil->save();
-        } catch (\Exception $e) {
-            \Log::error("Error while saving: " . $e->getMessage());
-            // Handle the exception, if needed
-        }
-
         return redirect()->route('arsip.index');
     }
 
@@ -159,7 +140,9 @@ class ArsipController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $pageTitle = 'Detail Kendaraan';
+
+        return view('arsip.show', compact('pageTitle'));
     }
 
     /**
@@ -167,7 +150,12 @@ class ArsipController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $pageTitle = 'Edit Kendaraan';
+        $kondisi = KondisiMobil::findOrFail($id);
+        $mobil = ListMobil::findOrFail($id);
+
+
+        return view('arsip.edit', compact('pageTitle', 'kondisi', 'mobil'));
     }
 
     /**

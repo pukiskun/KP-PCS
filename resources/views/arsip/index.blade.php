@@ -32,7 +32,7 @@
                         <td>{{ $item->fuel }}</td>
                         <td>{{ $item->admin }}</td>
                         <td>{{ $item->created_at }}</td>
-                        <td>action</td>
+                        <td>@include('arsip.actions')</td>
                     </tr>
 
                 @empty

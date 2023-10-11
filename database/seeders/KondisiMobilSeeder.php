@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class KondisiMobil extends Seeder
+class KondisiMobilSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -22,6 +22,7 @@ class KondisiMobil extends Seeder
                 'stnk' => 'CUKUP',
                 'pajak' => 'KURANG',
                 'uji_keur' => 'BAIK',
+                'lain_lain' => 'BAIK',
                 'body_luar' => 'BAIK',
                 'air_radiator' => 'BAIK',
                 'air_accu' => 'KURANG',
@@ -43,7 +44,6 @@ class KondisiMobil extends Seeder
                 'wipper_belakang' => 'KURANG',
                 'suara_mesin' => 'BAIK',
                 'rem' => 'KURANG',
-                'rem_hand' => 'BAIK',
                 'kunci_roda' => 'BAIK',
                 'dongkrak' => 'KURANG',
                 'segitiga_pengaman' => 'BAIK',

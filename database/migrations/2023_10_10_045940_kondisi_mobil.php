@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->string('stnk');
             $table->string('pajak');
             $table->string('uji_keur');
+            $table->string('lain_lain');
             $table->string('body_luar');
             $table->string('air_radiator');
             $table->string('air_accu');
@@ -37,7 +38,6 @@ return new class extends Migration {
             $table->string('wipper_belakang');
             $table->string('suara_mesin');
             $table->string('rem');
-            $table->string('rem_hand');
             $table->string('kunci_roda');
             $table->string('dongkrak');
             $table->string('segitiga_pengaman');

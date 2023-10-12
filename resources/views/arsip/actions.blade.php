@@ -9,9 +9,9 @@
 
 <body>
     <div class="d-flex justify-content-evenly">
-        <a href="{{ route('arsip.show', ['id' => $item->id]) }}" class="btn btn-primary me-2 btn-equal-width"> <i
+        <a href="{{ route('mobil.show', ['id' => $item->id]) }}" class="btn btn-primary me-2 btn-equal-width"> <i
                 class="bi bi-ticket-detailed"></i> Detail</a>
-        <a href="{{ route('arsip.edit', ['id' => $item->id]) }}" class="btn btn-warning me-2 btn-equal-width"><i
+        <a href="{{ route('mobil.edit', ['id' => $item->id]) }}" class="btn btn-warning me-2 btn-equal-width"><i
                 class="bi bi-pencil-square"></i> Edit</a>
     </div>
     @vite('resources/js/app.js')

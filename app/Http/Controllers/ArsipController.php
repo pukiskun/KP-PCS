@@ -94,7 +94,19 @@ class ArsipController extends Controller
         $mobil->odo_meter = $request->odo_meter;
         $mobil->fuel = $request->bensin;
         $mobil->admin = '-';
-        $mobil->toSql();
+        $sql = $mobil->toSql();
+        $bindings = $mobil->getBindings();
+
+        \Log::info("SQL Query: " . $sql);
+        \Log::info("Query Bindings: " . json_encode($bindings));
+
+        // Attempt to save the data
+        try {
+            $mobil->save();
+        } catch (\Exception $e) {
+            \Log::error("Error while saving: " . $e->getMessage());
+            // Handle the exception, if needed
+        }
 
         $kondisi = new KondisiMobil();
         $kondisi->nopol = $request->nopol;

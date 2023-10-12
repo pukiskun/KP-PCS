@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container-sm mt-5">
-        <form action="{{ route('arsip.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('mobil.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row justify-content-center">
                 <div class="p-5 bg-light rounded-3 border col-xl-12">
@@ -67,23 +67,23 @@
                                     </div>
                                     <div class="col-md-9">
 
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="stnk" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="stnk" value="CUKUP"
                                                 @if (old('stnk') == 'CUKUP') checked @endif> Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="stnk" value="RUSAK"
                                                 @if (old('stnk') == 'RUSAK') checked @endif> Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="stnk" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="stnk" value="TIDAK ADA"
                                                 @if (old('stnk') == 'TIDAK ADA') checked @endif> Tidak Ada/Ada
                                         </label>
@@ -102,27 +102,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="pajak" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="pajak" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="pajak" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="pajak" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="pajak" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -141,27 +141,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="uji_keur" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="uji_keur" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="uji_keur" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="uji_keur" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="uji_keur" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -180,27 +180,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lain_lain" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lain_lain" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lain_lain" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lain_lain" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lain_lain" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -222,27 +222,27 @@
                                 <h6>:</h6>
                             </div>
                             <div class="col-md-9">
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="body_luar" value="BAIK"
                                         @if (old('stnk') == 'BAIK') checked @endif> Baik
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="body_luar" value="CUKUP">
                                     @if (old('stnk') == 'CUKUP')
                                         checked
                                     @endif Cukup
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="body_luar" value="RUSAK">
                                     @if (old('stnk') == 'RUSAK')
                                         checked
                                     @endif Rusak
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="body_luar" value="KURANG"
                                         @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="body_luar" value="TIDAK ADA">
                                     @if (old('stnk') == 'TIDAK ADA')
                                         checked
@@ -262,27 +262,27 @@
                                 <h6>:</h6>
                             </div>
                             <div class="col-md-9">
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_radiator" value="BAIK"
                                         @if (old('stnk') == 'BAIK') checked @endif> Baik
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_radiator" value="CUKUP">
                                     @if (old('stnk') == 'CUKUP')
                                         checked
                                     @endif Cukup
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_radiator" value="RUSAK">
                                     @if (old('stnk') == 'RUSAK')
                                         checked
                                     @endif Rusak
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_radiator" value="KURANG"
                                         @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_radiator" value="TIDAK ADA">
                                     @if (old('stnk') == 'TIDAK ADA')
                                         checked
@@ -302,27 +302,27 @@
                                 <h6>:</h6>
                             </div>
                             <div class="col-md-9">
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_accu" value="BAIK"
                                         @if (old('stnk') == 'BAIK') checked @endif> Baik
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_accu" value="CUKUP">
                                     @if (old('stnk') == 'CUKUP')
                                         checked
                                     @endif Cukup
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_accu" value="RUSAK">
                                     @if (old('stnk') == 'RUSAK')
                                         checked
                                     @endif Rusak
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_accu" value="KURANG"
                                         @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_accu" value="TIDAK ADA">
                                     @if (old('stnk') == 'TIDAK ADA')
                                         checked
@@ -342,27 +342,27 @@
                                 <h6>:</h6>
                             </div>
                             <div class="col-md-9">
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_wipper" value="BAIK"
                                         @if (old('stnk') == 'BAIK') checked @endif> Baik
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_wipper" value="CUKUP">
                                     @if (old('stnk') == 'CUKUP')
                                         checked
                                     @endif Cukup
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_wipper" value="RUSAK">
                                     @if (old('stnk') == 'RUSAK')
                                         checked
                                     @endif Rusak
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_wipper" value="KURANG"
                                         @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_wipper" value="TIDAK ADA">
                                     @if (old('stnk') == 'TIDAK ADA')
                                         checked
@@ -382,27 +382,27 @@
                                 <h6>:</h6>
                             </div>
                             <div class="col-md-9">
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_ac" value="BAIK"
                                         @if (old('stnk') == 'BAIK') checked @endif> Baik
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_ac" value="CUKUP">
                                     @if (old('stnk') == 'CUKUP')
                                         checked
                                     @endif Cukup
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_ac" value="RUSAK">
                                     @if (old('stnk') == 'RUSAK')
                                         checked
                                     @endif Rusak
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_ac" value="KURANG"
                                         @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="air_ac" value="TIDAK ADA">
                                     @if (old('stnk') == 'TIDAK ADA')
                                         checked
@@ -422,27 +422,27 @@
                                 <h6>:</h6>
                             </div>
                             <div class="col-md-9">
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="oli_mesin" value="BAIK"
                                         @if (old('stnk') == 'BAIK') checked @endif> Baik
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="oli_mesin" value="CUKUP">
                                     @if (old('stnk') == 'CUKUP')
                                         checked
                                     @endif Cukup
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="oli_mesin" value="RUSAK">
                                     @if (old('stnk') == 'RUSAK')
                                         checked
                                     @endif Rusak
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="oli_mesin" value="KURANG"
                                         @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="oli_mesin" value="TIDAK ADA">
                                     @if (old('stnk') == 'TIDAK ADA')
                                         checked
@@ -462,27 +462,27 @@
                                 <h6>:</h6>
                             </div>
                             <div class="col-md-9">
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="minyak_rem" value="BAIK"
                                         @if (old('stnk') == 'BAIK') checked @endif> Baik
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="minyak_rem" value="CUKUP">
                                     @if (old('stnk') == 'CUKUP')
                                         checked
                                     @endif Cukup
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="minyak_rem" value="RUSAK">
                                     @if (old('stnk') == 'RUSAK')
                                         checked
                                     @endif Rusak
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="minyak_rem" value="KURANG"
                                         @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="minyak_rem" value="TIDAK ADA">
                                     @if (old('stnk') == 'TIDAK ADA')
                                         checked
@@ -502,27 +502,27 @@
                                 <h6>:</h6>
                             </div>
                             <div class="col-md-9">
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="oli_steering" value="BAIK"
                                         @if (old('stnk') == 'BAIK') checked @endif> Baik
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="oli_steering" value="CUKUP">
                                     @if (old('stnk') == 'CUKUP')
                                         checked
                                     @endif Cukup
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="oli_steering" value="RUSAK">
                                     @if (old('stnk') == 'RUSAK')
                                         checked
                                     @endif Rusak
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="oli_steering" value="KURANG"
                                         @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="oli_steering" value="TIDAK ADA">
                                     @if (old('stnk') == 'TIDAK ADA')
                                         checked
@@ -546,27 +546,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_utama" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_utama" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_utama" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_utama" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_utama" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -585,27 +585,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_kota" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_kota" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_kota" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_kota" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_kota" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -624,27 +624,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="fog_lamp" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="fog_lamp" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="fog_lamp" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="fog_lamp" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="fog_lamp" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -663,27 +663,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_sein" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_sein" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_sein" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_sein" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_sein" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -702,27 +702,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_belakang" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_belakang" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_belakang" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_belakang" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_belakang" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -741,27 +741,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_atret" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_atret" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_atret" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_atret" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_atret" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -780,27 +780,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_kabin" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_kabin" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_kabin" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_kabin" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="lampu_kabin" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -825,27 +825,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="ban_terpasang" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="ban_terpasang" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="ban_terpasang" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="ban_terpasang" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="ban_terpasang" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -864,27 +864,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="ban_serve" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="ban_serve" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="ban_serve" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="ban_serve" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="ban_serve" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -909,27 +909,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="wipper_depan" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="wipper_depan" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="wipper_depan" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="wipper_depan" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="wipper_depan" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -948,27 +948,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="wipper_belakang" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="wipper_belakang" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="wipper_belakang" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="wipper_belakang" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="wipper_belakang" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -990,27 +990,27 @@
                                 <h6>:</h6>
                             </div>
                             <div class="col-md-9">
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="suara_mesin" value="BAIK"
                                         @if (old('stnk') == 'BAIK') checked @endif> Baik
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="suara_mesin" value="CUKUP">
                                     @if (old('stnk') == 'CUKUP')
                                         checked
                                     @endif Cukup
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="suara_mesin" value="RUSAK">
                                     @if (old('stnk') == 'RUSAK')
                                         checked
                                     @endif Rusak
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="suara_mesin" value="KURANG"
                                         @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="suara_mesin" value="TIDAK ADA">
                                     @if (old('stnk') == 'TIDAK ADA')
                                         checked
@@ -1030,27 +1030,27 @@
                                 <h6>:</h6>
                             </div>
                             <div class="col-md-9">
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="rem" value="BAIK"
                                         @if (old('stnk') == 'BAIK') checked @endif> Baik
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="rem" value="CUKUP">
                                     @if (old('stnk') == 'CUKUP')
                                         checked
                                     @endif Cukup
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="rem" value="RUSAK">
                                     @if (old('stnk') == 'RUSAK')
                                         checked
                                     @endif Rusak
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="rem" value="KURANG"
                                         @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                 </label>
-                                <label class="form-check-label">
+                                <label class="form-check-label mx-4">
                                     <input type="radio" name="rem" value="TIDAK ADA">
                                     @if (old('stnk') == 'TIDAK ADA')
                                         checked
@@ -1073,27 +1073,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="kunci_roda" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="kunci_roda" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="kunci_roda" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="kunci_roda" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="kunci_roda" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -1112,27 +1112,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="dongkrak" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="dongkrak" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="dongkrak" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="dongkrak" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="dongkrak" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -1151,27 +1151,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="segitiga_pengaman" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="segitiga_pengaman" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="segitiga_pengaman" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="segitiga_pengaman" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="segitiga_pengaman" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked
@@ -1191,27 +1191,27 @@
                                         <h6>:</h6>
                                     </div>
                                     <div class="col-md-9">
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="kebersihan" value="BAIK"
                                                 @if (old('stnk') == 'BAIK') checked @endif> Baik
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="kebersihan" value="CUKUP">
                                             @if (old('stnk') == 'CUKUP')
                                                 checked
                                             @endif Cukup
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="kebersihan" value="RUSAK">
                                             @if (old('stnk') == 'RUSAK')
                                                 checked
                                             @endif Rusak
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="kebersihan" value="KURANG"
                                                 @if (old('stnk') == 'KURANG') checked @endif> Kurang
                                         </label>
-                                        <label class="form-check-label">
+                                        <label class="form-check-label mx-4">
                                             <input type="radio" name="kebersihan" value="TIDAK ADA">
                                             @if (old('stnk') == 'TIDAK ADA')
                                                 checked

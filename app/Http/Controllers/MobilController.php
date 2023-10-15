@@ -76,7 +76,6 @@ class MobilController extends Controller
                 'dongkrak' => 'required',
                 'segitiga_pengaman' => 'required',
                 'kebersihan' => 'required',
-                'keterangan' => 'required',
             ],
             $messages
         );
@@ -202,7 +201,6 @@ class MobilController extends Controller
                 'dongkrak' => 'required',
                 'segitiga_pengaman' => 'required',
                 'kebersihan' => 'required',
-                'keterangan' => 'required',
             ],
             $messages
         );

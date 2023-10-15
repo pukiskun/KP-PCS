@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('kondisi_mobils', function (Blueprint $table) {
             $table->id();
             $table->string('nopol');
-            $table->string('stnk');
+            $table->string('stnk')->nullable();
             $table->string('pajak');
             $table->string('uji_keur');
             $table->string('lain_lain');

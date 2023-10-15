@@ -1581,6 +1581,10 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-2 offset-md-5 d-grid mt-3">
+                    <a href="{{ url('mobil') }}" class="btn btn-outline-dark btn-lg mt-3"><i
+                            class="bi-arrow-left-circle me-2"></i>Kembali</a>
+                </div>
             </div>
         </div>
     </div>

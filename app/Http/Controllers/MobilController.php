@@ -15,11 +15,11 @@ class MobilController extends Controller
      */
     public function index()
     {
-        $pageTitle = 'Ruang Arsip';
+        $pageTitle = 'Ceklist Pemeriksaan Kendaraan Operasional Pool';
 
         $items = ListMobil::all();
 
-        return view('arsip.index', compact('pageTitle', 'items'));
+        return view('mobil.index', compact('pageTitle', 'items'));
     }
 
     /**
@@ -28,7 +28,7 @@ class MobilController extends Controller
     public function create()
     {
         $pageTitle = 'Create Data';
-        return view('arsip.create', compact('pageTitle'));
+        return view('mobil.create', compact('pageTitle'));
     }
 
     /**
@@ -128,7 +128,7 @@ class MobilController extends Controller
         $kondisi->keterangan = '-';
         $kondisi->save();
 
-        Alert::success('Berhasil Diubah', 'Dokumen Berhasil Diubah');
+        Alert::success('Berhasil Ditambahkan', 'Dokumen Berhasil Ditambahkan');
         return redirect()->route('mobil.index');
     }
 
@@ -141,7 +141,7 @@ class MobilController extends Controller
         $kondisi = KondisiMobil::findOrFail($id);
         $mobil = ListMobil::findOrFail($id);
 
-        return view('arsip.show', compact('pageTitle', 'kondisi', 'mobil'));
+        return view('mobil.show', compact('pageTitle', 'kondisi', 'mobil'));
     }
 
     /**
@@ -153,7 +153,7 @@ class MobilController extends Controller
         $kondisi = KondisiMobil::findOrFail($id);
         $mobil = ListMobil::findOrFail($id);
 
-        return view('arsip.edit', compact('pageTitle', 'kondisi', 'mobil'));
+        return view('mobil.edit', compact('pageTitle', 'kondisi', 'mobil'));
     }
 
     /**
@@ -255,7 +255,7 @@ class MobilController extends Controller
         $kondisi->save();
 
         Alert::success('Berhasil Diubah', 'Dokumen Berhasil Diubah');
-        return redirect()->route('arsip.index');
+        return redirect()->route('mobil.index');
     }
 
     /**

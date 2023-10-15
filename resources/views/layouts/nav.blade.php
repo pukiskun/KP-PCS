@@ -11,7 +11,7 @@
                     <a class="nav-link" href="{{ route('data.index') }}">Data</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('arsip.index') }}">Ruang Arsip</a>
+                    <a class="nav-link" href="{{ route('mobil.index') }}">Pemeriksaan Kendaraan</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">

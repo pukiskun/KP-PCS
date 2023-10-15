@@ -21,7 +21,6 @@ use App\Http\Controllers\ArsipController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::resource('data', DataController::class);
-Route::resource('arsip', ArsipController::class);
 Route::resource('mobil', MobilController::class);
 
 Route::get('edit/{id}', [DataController::class, 'edit'])->name('data.edit');
@@ -34,9 +33,12 @@ Route::get('delete/{id}', [DataController::class, 'destroy'])->name(
 );
 Route::get('download/{id}', [PrintController::class, 'download']);
 
-
-Route::get('detail-mobil/{id}', [MobilController::class, 'show'])->name('mobil.show');
-Route::get('edit-mobil/{id}', [MobilController::class, 'edit'])->name('mobil.edit');
+Route::get('detail-mobil/{id}', [MobilController::class, 'show'])->name(
+    'mobil.show'
+);
+Route::get('edit-mobil/{id}', [MobilController::class, 'edit'])->name(
+    'mobil.edit'
+);
 Route::post('edit-mobil/update/{id}', [MobilController::class, 'update'])->name(
     'mobil.update'
 );

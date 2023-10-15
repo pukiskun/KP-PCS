@@ -47,6 +47,36 @@ class MobilController extends Controller
                 'merk' => 'required',
                 'odo_meter' => 'required',
                 'bensin' => 'required',
+                'stnk' => 'required',
+                'pajak' => 'required',
+                'uji_keur' => 'required',
+                'lain_lain' => 'required',
+                'body_luar' => 'required',
+                'air_radiator' => 'required',
+                'air_accu' => 'required',
+                'air_wipper' => 'required',
+                'air_ac' => 'required',
+                'oli_mesin' => 'required',
+                'minyak_rem' => 'required',
+                'oli_steering' => 'required',
+                'lampu_utama' => 'required',
+                'lampu_kota' => 'required',
+                'fog_lamp' => 'required',
+                'lampu_sein' => 'required',
+                'lampu_belakang' => 'required',
+                'lampu_atret' => 'required',
+                'lampu_kabin' => 'required',
+                'ban_terpasang' => 'required',
+                'ban_serve' => 'required',
+                'wipper_depan' => 'required',
+                'wipper_belakang' => 'required',
+                'suara_mesin' => 'required',
+                'rem' => 'required',
+                'kunci_roda' => 'required',
+                'dongkrak' => 'required',
+                'segitiga_pengaman' => 'required',
+                'kebersihan' => 'required',
+                'keterangan' => 'required',
             ],
             $messages
         );
@@ -109,8 +139,10 @@ class MobilController extends Controller
     public function show(string $id)
     {
         $pageTitle = 'Detail Kendaraan';
+        $kondisi = KondisiMobil::findOrFail($id);
+        $mobil = ListMobil::findOrFail($id);
 
-        return view('arsip.show', compact('pageTitle'));
+        return view('arsip.show', compact('pageTitle', 'kondisi', 'mobil'));
     }
 
     /**
@@ -121,7 +153,6 @@ class MobilController extends Controller
         $pageTitle = 'Edit Kendaraan';
         $kondisi = KondisiMobil::findOrFail($id);
         $mobil = ListMobil::findOrFail($id);
-
 
         return view('arsip.edit', compact('pageTitle', 'kondisi', 'mobil'));
     }

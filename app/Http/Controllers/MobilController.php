@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\ListMobil;
 use App\Models\KondisiMobil;
 use App\Models\RiwayatMobil;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
@@ -98,7 +99,7 @@ class MobilController extends Controller
         $mobil->merk = $request->input('merk');
         $mobil->odo_meter = $request->input('odo_meter');
         $mobil->fuel = $request->input('bensin');
-        $mobil->admin = '-';
+        $mobil->admin = Auth::user()->name;
         $mobil->save();
 
         $kondisi = new KondisiMobil();
@@ -141,7 +142,7 @@ class MobilController extends Controller
         $riwayat->odo_meter = $request->odo_meter;
         $riwayat->fuel = $request->bensin;
         $riwayat->updated_at = null;
-        $riwayat->admin = '-';
+        $riwayat->admin = Auth::user()->name;
         $riwayat->status = 'Dibuat';
         $riwayat->save();
 
@@ -234,7 +235,7 @@ class MobilController extends Controller
         $mobil->merk = $request->merk;
         $mobil->odo_meter = $request->odo_meter;
         $mobil->fuel = $request->bensin;
-        $mobil->admin = '-';
+        $mobil->admin = Auth::user()->name;
         $mobil->save();
 
         $kondisi = KondisiMobil::find($id);
@@ -277,7 +278,7 @@ class MobilController extends Controller
         $riwayat->odo_meter = $request->odo_meter;
         $riwayat->fuel = $request->bensin;
         $riwayat->created_at = $mobil->created_at;
-        $riwayat->admin = '-';
+        $riwayat->admin = Auth::user()->name;
         $riwayat->status = 'Disunting';
         $riwayat->save();
 
@@ -302,7 +303,7 @@ class MobilController extends Controller
         $riwayat->created_at = $mobil->created_at;
         $riwayat->updated_at = $mobil->updated_at;
         $riwayat->updated_at = $now;
-        $riwayat->admin = '-';
+        $riwayat->admin = Auth::user()->name;
         $riwayat->status = 'Dihapus';
         $riwayat->save();
     }

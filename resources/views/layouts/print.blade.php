@@ -21,15 +21,46 @@
     </div>
     <div class="line"></div>
     <div class="container">
-        <img src="data:image/png;base64, {{ base64_encode($code) }} " />
-        <p>{{ $data->kode }}</p>
-        <p>{{ $data->nama }}</p>
-        @foreach ($items as $item)
-            <p>{{ $item->kategori_nama }}</p>
-        @endforeach
-        @foreach ($items as $item)
-            <p>{{ $item->division_nama }}</p>
-        @endforeach
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="4">
+                        <img src="data:image/png;base64, {{ base64_encode($code) }} " />
+
+                    </th>
+                    <th style="width: 580px">
+                        <p>{{ $data->kode }}</p>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>{{ $data->nama }}</p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+
+                        @foreach ($items as $item)
+                            <p>{{ $item->kategori_nama }}</p>
+                        @endforeach
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        @foreach ($items as $item)
+                            <p>{{ $item->division_nama }}</p>
+                        @endforeach
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 
@@ -38,6 +69,18 @@
 <style>
     @page {
         size: A4 landscape;
+    }
+
+    table p {
+        font-size: 2rem
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        text-align: center;
+        border-collapse: collapse
     }
 
     .header {
@@ -74,5 +117,6 @@
 
     .container {
         padding: 20px;
+        align-self: center
     }
 </style>

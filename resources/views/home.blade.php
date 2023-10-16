@@ -3,7 +3,7 @@
     <div class="container">
         <div class="nama_box">
             <h4>Selamat datang</h4>
-            <h1>Halo, Admin 1</h1>
+            <h1>Halo, {{ Auth::user()->name }}</h1>
         </div>
         <hr class="my-4">
         <table class="table table-striped table-success table-hover">

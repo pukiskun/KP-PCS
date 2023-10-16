@@ -41,7 +41,6 @@
                     </tr>
                 @empty
                     <tr>
-
                         <th colspan="9">Tidak Ada Data</th>
                     </tr>
                 @endforelse

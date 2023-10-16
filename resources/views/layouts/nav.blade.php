@@ -31,6 +31,12 @@
                         <li><a class="dropdown-item" href="{{ route('profile') }}"><i class="bi bi-person-fill"></i> My
                                 Profile</a>
                         </li>
+                        <li><a class="dropdown-item" href="{{ route('register') }}"><i
+                                    class="bi bi-person-plus-fill"></i> Tambah Admin</a></li>
+                        <li>
+                        <li><a class="dropdown-item" href="{{ route('listAdmin') }}"><i class="bi bi-card-list"></i>
+                                List
+                                Admin</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

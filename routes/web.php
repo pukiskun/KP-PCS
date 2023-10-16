@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ListController;
 use App\Http\Controllers\ArsipController;
 use App\Http\Controllers\MobilController;
 use App\Http\Controllers\PrintController;
@@ -44,6 +45,11 @@ Route::middleware(['auth'])->group(function () {
         ProfileController::class,
         'updatePassword',
     ])->name('profile.updatePassword');
+
+    // List Admin
+    Route::get('listAdmin', [ListController::class, 'index'])->name(
+        'listAdmin'
+    );
 
     // Data
     Route::resource('data', DataController::class);

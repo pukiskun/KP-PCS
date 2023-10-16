@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ListMobil;
 use App\Models\KondisiMobil;
+use App\Models\RiwayatMobil;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
@@ -253,6 +254,9 @@ class MobilController extends Controller
         $kondisi->kebersihan = $request->kebersihan;
         $kondisi->keterangan = '-';
         $kondisi->save();
+
+        $riwayat = new RiwayatMobil();
+        $riwayat->nopol = $request->nopol;
 
         Alert::success('Berhasil Diubah', 'Dokumen Berhasil Diubah');
         return redirect()->route('arsip.index');

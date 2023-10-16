@@ -31,6 +31,8 @@
                         <li><a class="dropdown-item" href="{{ route('profile') }}"><i class="bi bi-person-fill"></i> My
                                 Profile</a>
                         </li>
+                        <li><a class="dropdown-item" href="{{ route('profile.updatePassword') }}"><i
+                                    class="bi bi-key-fill"></i> Ubah Password</a></li>
                         <li><a class="dropdown-item" href="{{ route('register') }}"><i
                                     class="bi bi-person-plus-fill"></i> Tambah Admin</a></li>
                         <li>

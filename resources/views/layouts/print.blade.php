@@ -21,15 +21,19 @@
     </div>
     <div class="line"></div>
     <div class="container">
-        <img src="data:image/png;base64, {{ base64_encode($code) }} " />
-        <p>{{ $data->kode }}</p>
-        <p>{{ $data->nama }}</p>
-        @foreach ($items as $item)
-            <p>{{ $item->kategori_nama }}</p>
-        @endforeach
-        @foreach ($items as $item)
-            <p>{{ $item->division_nama }}</p>
-        @endforeach
+        <div class="barcode-container">
+            <img src="data:image/png;base64, {{ base64_encode($code) }} " />
+        </div>
+        <div class="info-container">
+            <p>Kode : {{ $data->kode }}</p>
+            <p>Nama Dokumen : {{ $data->nama }}</p>
+            @foreach ($items as $item)
+                <p>Kategori : {{ $item->kategori_nama }}</p>
+            @endforeach
+            @foreach ($items as $item)
+                <p>Divisi: {{ $item->division_nama }}</p>
+            @endforeach
+        </div>
     </div>
 </body>
 
@@ -73,6 +77,16 @@
     }
 
     .container {
-        padding: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .barcode-container {
+        margin-right: 20px;
+    }
+
+    .info-container p {
+        margin: 0;
     }
 </style>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ListMobil;
 use App\Models\KondisiMobil;
 use App\Models\RiwayatMobil;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
@@ -14,13 +15,18 @@ class MobilController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $pageTitle = 'Ruang Arsip';
+        $pageTitle = 'Ceklist Pemeriksaan Kendaraan Operasional Pool';
 
         $items = ListMobil::all();
 
-        return view('arsip.index', compact('pageTitle', 'items'));
+        return view('mobil.index', compact('pageTitle', 'items'));
     }
 
     /**
@@ -29,7 +35,7 @@ class MobilController extends Controller
     public function create()
     {
         $pageTitle = 'Create Data';
-        return view('arsip.create', compact('pageTitle'));
+        return view('mobil.create', compact('pageTitle'));
     }
 
     /**
@@ -129,7 +135,17 @@ class MobilController extends Controller
         $kondisi->keterangan = '-';
         $kondisi->save();
 
-        Alert::success('Berhasil Diubah', 'Dokumen Berhasil Diubah');
+        $riwayat = new RiwayatMobil();
+        $riwayat->nopol = $request->nopol;
+        $riwayat->merk = $request->merk;
+        $riwayat->odo_meter = $request->odo_meter;
+        $riwayat->fuel = $request->bensin;
+        $riwayat->updated_at = null;
+        $riwayat->admin = '-';
+        $riwayat->status = 'Dibuat';
+        $riwayat->save();
+
+        Alert::success('Berhasil Ditambahkan', 'Dokumen Berhasil Ditambahkan');
         return redirect()->route('mobil.index');
     }
 
@@ -142,7 +158,7 @@ class MobilController extends Controller
         $kondisi = KondisiMobil::findOrFail($id);
         $mobil = ListMobil::findOrFail($id);
 
-        return view('arsip.show', compact('pageTitle', 'kondisi', 'mobil'));
+        return view('mobil.show', compact('pageTitle', 'kondisi', 'mobil'));
     }
 
     /**
@@ -154,7 +170,7 @@ class MobilController extends Controller
         $kondisi = KondisiMobil::findOrFail($id);
         $mobil = ListMobil::findOrFail($id);
 
-        return view('arsip.edit', compact('pageTitle', 'kondisi', 'mobil'));
+        return view('mobil.edit', compact('pageTitle', 'kondisi', 'mobil'));
     }
 
     /**
@@ -257,9 +273,17 @@ class MobilController extends Controller
 
         $riwayat = new RiwayatMobil();
         $riwayat->nopol = $request->nopol;
+        $riwayat->merk = $request->merk;
+        $riwayat->odo_meter = $request->odo_meter;
+        $riwayat->fuel = $request->bensin;
+        $riwayat->created_at = $mobil->created_at;
+        $riwayat->admin = '-';
+        $riwayat->status = 'Disunting';
+        $riwayat->save();
+
 
         Alert::success('Berhasil Diubah', 'Dokumen Berhasil Diubah');
-        return redirect()->route('arsip.index');
+        return redirect()->route('mobil.index');
     }
 
     /**
@@ -267,6 +291,19 @@ class MobilController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $now = Carbon::now();
+        $mobil = ListMobil::findOrFail($id);
+
+        $riwayat = new RiwayatMobil();
+        $riwayat->nopol = $mobil->nopol;
+        $riwayat->merk = $mobil->merk;
+        $riwayat->odo_meter = $mobil->odo_meter;
+        $riwayat->fuel = $mobil->bensin;
+        $riwayat->created_at = $mobil->created_at;
+        $riwayat->updated_at = $mobil->updated_at;
+        $riwayat->updated_at = $now;
+        $riwayat->admin = '-';
+        $riwayat->status = 'Dihapus';
+        $riwayat->save();
     }
 }

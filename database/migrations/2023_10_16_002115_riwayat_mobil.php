@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('admin')->nullable();
             $table->string('status')->nullable();
             $table->datetime('deleted_at')->nullable();
-            $table->timestamps();
+            $table->timestamps()->nullable();
         });
     }
 

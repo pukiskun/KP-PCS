@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             RiwayatSeeder::class,
             KondisiMobilSeeder::class,
             ListMobilSeeder::class,
-            RiwayatMobilSeeder::class
+            RiwayatMobilSeeder::class,
+            UserSeeder::class,
         ]);
     }
 }

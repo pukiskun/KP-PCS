@@ -7,7 +7,7 @@
             </div>
             <div class="col-lg-3 col-xl-2">
                 <div class="d-grid gap-2 mb-5">
-                    <a href="{{ route('arsip.create') }}" class="btn btn-secondary">Tambah Data</a>
+                    <a href="{{ route('mobil.create') }}" class="btn btn-secondary">Tambah Data</a>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                             <td>{{ $item->fuel }}</td>
                             <td>{{ $item->admin }}</td>
                             <td>{{ $item->created_at }}</td>
-                            <td>@include('arsip.actions')</td>
+                            <td>@include('mobil.actions')</td>
                         </tr>
                     @endforeach
                 </tbody>

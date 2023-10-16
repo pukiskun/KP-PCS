@@ -13,6 +13,11 @@ class MobilController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $pageTitle = 'Ceklist Pemeriksaan Kendaraan Operasional Pool';

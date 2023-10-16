@@ -8,19 +8,17 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     function index()
     {
         $riwayats = Riwayat::all();
         $mobil = ListMobil::all();
 
         $pageTitle = 'Home';
-        return view(
-            'home',
-            compact(
-                'pageTitle',
-                'riwayats',
-                'mobil'
-            )
-        );
+        return view('home', compact('pageTitle', 'riwayats', 'mobil'));
     }
 }

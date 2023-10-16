@@ -20,6 +20,11 @@ class DataController extends Controller
      * Display a listing of the resource.
      */
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     private function generateKode($kategori, $divisi)
     {
         $kategoriCode = strtoupper(substr($kategori, 0, 3));

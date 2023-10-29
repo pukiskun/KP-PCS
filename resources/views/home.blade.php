@@ -1,12 +1,13 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <div class="nama_box">
+        <div class="nama_box text-end">
             <h4>Selamat datang</h4>
             <h1>Halo, {{ Auth::user()->name }}</h1>
+            <h4 class="text-start">Riwayat dokumen</h4>
         </div>
         <hr class="my-4">
-        <table class="table table-striped table-success table-hover">
+        <table class="table table-striped table-dark table-hover">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -48,11 +49,10 @@
         </table>
         <hr>
         <div class="nama_box">
-            <h4>Selamat datang</h4>
-            <h1>Halo, Admin 1</h1>
+            <h4 class="text-start">Riwayat mobil masuk</h4>
+            <hr class="">
         </div>
-        <hr class="my-4">
-        <table class="table table-striped table-success table-hover">
+        <table class="table table-striped table-dark table-hover">
             <thead>
                 <tr>
                     <th>ID</th>

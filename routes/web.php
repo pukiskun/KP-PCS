@@ -47,8 +47,12 @@ Route::middleware(['auth'])->group(function () {
     ])->name('profile.updatePassword');
 
     // List Admin
+    Route::resource('listAdmin', ListController::class);
     Route::get('listAdmin', [ListController::class, 'index'])->name(
         'listAdmin'
+    );
+    Route::get('listAdmin/{id}', [ListController::class, 'index'])->name(
+        'admin.show'
     );
 
     // Data

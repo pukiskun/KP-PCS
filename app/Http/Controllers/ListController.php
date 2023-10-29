@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Riwayat;
+use App\Models\RiwayatMobil;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ListController extends Controller
@@ -18,8 +21,9 @@ class ListController extends Controller
     public function index()
     {
         $pageTitle = 'List Admin';
+        $users = User::all();
 
-        return view('listAdmin', compact('pageTitle'));
+        return view('admin.listAdmin', compact('pageTitle', 'users'));
     }
 
     /**
@@ -43,7 +47,13 @@ class ListController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $pageTitle = 'Detail';
+        $user = User::findOrFail($id);
+        $riwayat = Riwayat::where('admin', $user->name)->get();
+        $riwayat_mobil = RiwayatMobil::where('admin', $user->name)->get();
+
+
+        return view('admin.show', compact('pageTitle', 'riwayat', 'riwayat_mobil', 'user'));
     }
 
     /**

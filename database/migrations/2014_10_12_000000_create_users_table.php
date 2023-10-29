@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->date('tanggalLahir')->nullable();
-            $table->integer('telepon')->nullable();
+            $table->string('telepon')->nullable();
             $table->string('jenisKelamin')->nullable();
             $table->string('tentangSaya')->nullable();
             $table->rememberToken();

@@ -10,6 +10,7 @@ use App\Models\Kategoris;
 use App\Models\Tersimpan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
@@ -150,7 +151,7 @@ class DataController extends Controller
         $riwayat->kode = $kode . '-' . $kodeNumber;
         $riwayat->nama = $request->nama;
         $riwayat->parent = $request->parent;
-        $riwayat->admin = '-';
+        $riwayat->admin = Auth::user()->name;
         $riwayat->status = 'Dibuat';
         $riwayat->updated_at = null;
         $riwayat->save();
@@ -287,7 +288,7 @@ class DataController extends Controller
         $riwayat->kode = $kode . '-' . $kodeNumber;
         $riwayat->nama = $request->nama;
         $riwayat->parent = $request->parent;
-        $riwayat->admin = '-';
+        $riwayat->admin = Auth::user()->name;
         $riwayat->status = 'Disunting';
         $riwayat->created_at = $datas->created_at;
         $riwayat->save();
@@ -311,7 +312,7 @@ class DataController extends Controller
         $riwayat->kode = $datas->kode;
         $riwayat->nama = $datas->nama;
         $riwayat->parent = $tersimpan->parent;
-        $riwayat->admin = '-';
+        $riwayat->admin = Auth::user()->name;
         $riwayat->status = 'Dihapus';
         $riwayat->created_at = $datas->created_at;
         $riwayat->updated_at = $datas->updated_at;

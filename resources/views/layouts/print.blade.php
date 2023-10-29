@@ -21,19 +21,46 @@
     </div>
     <div class="line"></div>
     <div class="container">
-        <div class="barcode-container">
-            <img src="data:image/png;base64, {{ base64_encode($code) }} " />
-        </div>
-        <div class="info-container">
-            <p>Kode : {{ $data->kode }}</p>
-            <p>Nama Dokumen : {{ $data->nama }}</p>
-            @foreach ($items as $item)
-                <p>Kategori : {{ $item->kategori_nama }}</p>
-            @endforeach
-            @foreach ($items as $item)
-                <p>Divisi: {{ $item->division_nama }}</p>
-            @endforeach
-        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="4">
+                        <img src="data:image/png;base64, {{ base64_encode($code) }} " />
+
+                    </th>
+                    <th style="width: 580px">
+                        <p>{{ $data->kode }}</p>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>{{ $data->nama }}</p>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+
+                        @foreach ($items as $item)
+                            <p>{{ $item->kategori_nama }}</p>
+                        @endforeach
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        @foreach ($items as $item)
+                            <p>{{ $item->division_nama }}</p>
+                        @endforeach
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 
@@ -42,6 +69,18 @@
 <style>
     @page {
         size: A4 landscape;
+    }
+
+    table p {
+        font-size: 2rem
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        text-align: center;
+        border-collapse: collapse
     }
 
     .header {
@@ -77,16 +116,6 @@
     }
 
     .container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .barcode-container {
-        margin-right: 20px;
-    }
-
-    .info-container p {
-        margin: 0;
+        padding: 20px;
     }
 </style>

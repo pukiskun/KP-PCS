@@ -7,7 +7,7 @@
             <h4 class="text-start">Riwayat dokumen</h4>
         </div>
         <hr class="my-4">
-        <table class="table table-striped table-dark table-hover">
+        <table class="table table-striped table-success table-hover mb-5">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -47,12 +47,11 @@
                 @endforelse
             </tbody>
         </table>
-        <hr>
         <div class="nama_box">
             <h4 class="text-start">Riwayat mobil masuk</h4>
-            <hr class="">
         </div>
-        <table class="table table-striped table-dark table-hover">
+        <hr class="my-4">
+        <table class="table table-striped table-light table-hover">
             <thead>
                 <tr>
                     <th>ID</th>

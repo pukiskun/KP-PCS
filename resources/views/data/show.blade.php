@@ -45,7 +45,8 @@
                             <p class="fw-bold fs-5">{{ $item->created_at }}</p>
                         </div>
                         <div class="row">
-                            <a href="{{ url('download/' . $key) }}" class="btn btn-dark me-2"><i class="bi bi-download"></i>
+                            <a href="{{ url('download/' . $key) }}" class="btn btn-success me-2"><i
+                                    class="bi bi-download"></i>
                                 Download</a>
                         </div>
                     </div>
@@ -60,27 +61,49 @@
             <div class="p-5 bg-light rounded-3 border col-12">
                 <h4>Data dalam <em class="fw-bold">{{ $item->nama }}</em> </h4>
                 <hr class="my-4">
-                {{-- @foreach ($isi_item as $isi)
-                    <p>{{ $isi->item }}</p>
-                @endforeach --}}
-                <div class="row g-2 text-center justify-content-evenly">
-                    @if (count($isi_item) > 0)
-                    @else
-                        <p class="fw-bold my-4">Tidak ada data yang tersimpan di <em
-                                class="fw-bold">{{ $item->nama }}</em></p>
-                    @endif
-                    @foreach ($isi_item as $isi)
-                        <a class="col-3 m-2 data-card "
-                            href="{{ route('data.show', ['id' => $datas->firstWhere('kode', $isi->item)->id]) }}">
-                            <div class="p-2">
-                                <h5>{{ $isi->nama_item }}</h5>
-                                <hr>
-                                <h6>{{ $isi->item }}</h6>
-                            </div>
-                        </a>
-                    @endforeach
-                </div>
+
+                @if (count($isi_item) > 0)
+                    <table class="table table-striped table-light table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nama Item</th>
+                                <th>Tanggal Dibuat</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($isi_item as $isi)
+                                <tr>
+                                    <th>{{ $isi->item }}</th>
+                                    <th>{{ $isi->nama_item }}</th>
+                                    <th>{{ $isi->created_at }}</th>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                @else
+                    <p class="fw-bold my-4">Tidak ada data yang tersimpan di <em class="fw-bold">{{ $item->nama }}</em>
+                    </p>
+                @endif
+
+                {{-- <div class="row g-2 text-center justify-content-evenly">
+                        @if (count($isi_item) > 0)
+                        @else
+                            <p class="fw-bold my-4">Tidak ada data yang tersimpan di <em
+                                    class="fw-bold">{{ $item->nama }}</em></p>
+                        @endif
+                        @foreach ($isi_item as $isi)
+                            <a class="col-3 m-2 data-card "
+                                href="{{ route('data.show', ['id' => $datas->firstWhere('kode', $isi->item)->id]) }}">
+                                <div class="p-2">
+                                    <h5>{{ $isi->nama_item }}</h5>
+                                    <hr>
+                                    <h6>{{ $isi->item }}</h6>
+                                </div>
+                            </a>
+                        @endforeach --}}
             </div>
         </div>
+    </div>
     </div>
 @endsection

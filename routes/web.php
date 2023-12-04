@@ -83,7 +83,6 @@ Route::middleware(['auth'])->group(function () {
         MobilController::class,
         'update',
     ])->name('mobil.update');
-    Route::get('mobil/export/excel', [MobilController::class, 'export_excel']);
 });
 
 Auth::routes();

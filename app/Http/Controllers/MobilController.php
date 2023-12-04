@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\ListMobil;
-use App\Exports\ExportMobil;
 use App\Models\KondisiMobil;
 use App\Models\RiwayatMobil;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Maatwebsite\Excel\Facades\Excel;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 
@@ -308,10 +306,5 @@ class MobilController extends Controller
         $riwayat->admin = Auth::user()->name;
         $riwayat->status = 'Dihapus';
         $riwayat->save();
-    }
-
-    function export_excel()
-    {
-        return Excel::download(new ExportMobil, 'mobil.xlsx');
     }
 }

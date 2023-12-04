@@ -117,6 +117,5 @@
 
     .container {
         padding: 20px;
-        align-self: center
     }
 </style>

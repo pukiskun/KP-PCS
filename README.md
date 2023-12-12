@@ -35,9 +35,8 @@
    
 9. Generate application key: `php artisan key:generate`
 10. Jalakan migrasi database: `php artisan migrate`
-11. Install npm packages: `npm install`
-12. Compile assets: `npm run dev`
-13. Start the Laravel development server: `php artisan serve`
+11. Lakukan seeding database: `php artisan db:seed`
+12. Install npm packages: `npm install`
 
 ## Usage
 

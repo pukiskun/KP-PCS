@@ -22,7 +22,7 @@
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/pukiskun/KP-PCS.git`
+1. Clone repository: `git clone https://github.com/pukiskun/KP-PCS.git`
 2. Masuk ke project directory: `cd KP-PCS`
 3. Install Composer dependencies: `composer install`
 4. Duplicate file .env.example dan ubah menjadi .env

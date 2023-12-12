@@ -1,64 +1,66 @@
-# Laravel Project Name
-
-Brief description of your Laravel project.
+# Project KP - Website Arsip & Checklist
 
 ## Table of Contents
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Configuration](#configuration)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
 
 ## Getting Started
 
-Briefly describe how someone can get started with your Laravel project.
+- siapkan sebuah folder untuk menjadi folder induk dari project.
+- lakukan inisiasi git dengan `git init`
 
 ### Prerequisites
 
-PHP (v7.4 or higher)
-Composer (v2.0.0 or higher)
-Node.js (v14.0.0 or higher)
-npm (v6.0.0 or higher)
-MySQL or any other database server
+- PHP (v8.0^)
+- Composer (v2.5.x^)
+- Node.js (v19.x^)
+- npm (v9.0^)
+- MySQL (XAMPP)
 
 ### Installation
 
-Clone the repository: git clone https://github.com/yourusername/yourlaravelproject.git
-Navigate to the project directory: cd yourlaravelproject
-Install Composer dependencies: composer install
-Copy the .env.example file to .env: cp .env.example .env
-Configure the database settings in the .env file
-Generate application key: php artisan key:generate
-Run migrations: php artisan migrate
-Install npm packages: npm install
-Compile assets: npm run dev
-Start the Laravel development server: php artisan serve
-
-## Configuration
-
-Explain any additional configuration steps or customization options.
+1. Clone the repository: `git clone https://github.com/pukiskun/KP-PCS.git`
+2. Masuk ke project directory: `cd KP-PCS`
+3. Install Composer dependencies: `composer install`
+4. Duplicate file .env.example dan ubah menjadi .env
+   
+   ![image](https://github.com/pukiskun/KP-PCS/assets/80185724/4aae9997-ca5f-4eae-aa96-222800a57fc1)
+   
+6. Ubah nama database dalam .env
+   
+   ![image](https://github.com/pukiskun/KP-PCS/assets/80185724/98daac9a-fbfd-4282-ab7e-f58c4578a9a6)
+   
+9. Generate application key: `php artisan key:generate`
+10. Jalakan migrasi database: `php artisan migrate`
+11. Install npm packages: `npm install`
+12. Compile assets: `npm run dev`
+13. Start the Laravel development server: `php artisan serve`
 
 ## Usage
 
-Provide information on how to use your Laravel project, including any commands or features.
+1. Buka XAMPP
+2. Nyalakan modul APACHE dan MYSQL
+
+   ![image](https://github.com/pukiskun/KP-PCS/assets/80185724/89fb01be-8858-407e-860f-5b1cdc1b5a19)
+   
+4. Buka 2 terminal
+5. Pada terminal pertama jalankan `php artisan serve`
+6. Pada terminal kedua jalankan `npm run dev`
 
 ## Contributing
 
-If you would like to contribute to the project, please follow these guidelines.
+Untuk kontribusi dan workflow, ikuti _guideline_ berikut
 
-- Fork the project
-- Create a new branch
-- Make your changes
-- Submit a pull request
+- Fork github project
+- Buatlah branch baru
+- Lakukan perubahan
+- Simpan pekerjaan dengan `git add .`
+- Lakukan `git commit -m "pesan commit"` jika sudah siap untuk apply
+- Jika ingin push perubahan, lakukan pada branch yang telah dibuat dengan `git push origin nama_branch` (Jangan langsung push ke master `git push origin master`)
+- Submit pull request pada repository github
+- Pull request hanya boleh diACC oleh master
 
-## License
-
-This Laravel project is licensed under the [Your License Name] - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-Mention any Laravel packages, contributors, or resources you want to acknowledge.
 
